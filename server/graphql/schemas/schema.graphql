@@ -1,0 +1,36 @@
+
+type User {
+    id: ID!
+    firstname: String!
+    lastname: String!
+    username: String!
+    email: String!
+    usertype: String!
+  }
+type AuthResponse {
+    token: String!
+}
+
+type TokenValidation {
+    valid: Boolean!
+}
+
+
+  type Query {
+    verifyToken: TokenValidation!
+    users: [User]
+  }
+
+
+type Mutation {
+  signup(
+    firstname: String!
+    lastname: String!
+    username: String!
+    email: String!
+    password: String!
+    usertype: String!
+  ): Boolean!
+ login(email: String!, password: String!): AuthResponse!
+
+}
